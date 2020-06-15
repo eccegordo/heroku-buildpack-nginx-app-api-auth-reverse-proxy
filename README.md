@@ -38,29 +38,33 @@ Set the number of workers for Nginx (Default: `4`):
 
     heroku config:set NGINX_WORKERS=4
 
+#### APP Service
+
+Set the location of the APP service/server you want to proxy to.
+`/app => ...`
+
+    heroku config:set APP_SERVER=https://app-example.herokuapp.com
+    heroku config:set APP_SERVER_PATH=/app
+    heroku config:set APP_SERVER_SUBDOMAIN=app-example
+
+
 #### AUTH Service
 
 Set the location of the auth service you want to proxy to.
 `/auth => ...`
 
-    heroku config:set AUTH_SERVER=https://auth.example.com
+    heroku config:set AUTH_SERVER=https://auth-example.herokuapp.com
     heroku config:set AUTH_SERVER_PATH=/auth
+    heroku config:set AUTH_SERVER_SUBDOMAIN=auth-example
 
 #### API Service
 
 Set the location of the API service you want to proxy to. 
 `/api => ...`
 
-    heroku config:set API_SERVER=https://api.example.com
+    heroku config:set API_SERVER=https://api-example.herokuapp.com
     heroku config:set API_SERVER_PATH=/api
-
-#### APP Service
-
-Set the location of the APP service/server you want to proxy to.
-`/app => ...`
-
-    heroku config:set APP_SERVER=https://api.example.com
-    heroku config:set APP_SERVER_PATH=/app
+    heroku config:set API_SERVER_SUBDOMAIN=api-example
 
 #### Authentication
 
