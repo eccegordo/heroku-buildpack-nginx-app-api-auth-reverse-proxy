@@ -28,7 +28,7 @@ fi
 trap cat_npm_debug_log ERR
 
 status "Downloading and installing nginx"
-nginx_url=https://nginx.org/download/nginx-NGINX_VERSION-1.18.0.tar.gz
+nginx_url=https://nginx.org/download/nginx-1.18.0.tar.gz
 curl $nginx_url -s -o - | tar xzf - -C $build_dir/vendor
 
 status "Adding boot script"
