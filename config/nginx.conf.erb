@@ -67,6 +67,30 @@ http {
       <% if ENV["NGINX_DEBUG"] %>add_header Nginx-Base-Location on;<% end %>
     }
 
+    <% if ENV["AUTH_SERVER"] %>
+      location /auth {
+        proxy_pass <% ENV["AUTH_SERVER"] %>;
+        proxy_http_version 1.1;
+        proxy_buffering off;
+      }
+    <% end %>
+
+    <% if ENV["APP_SERVER"] %>
+      location /app {
+        proxy_pass <% ENV["APP_SERVER"] %>;
+        proxy_http_version 1.1;
+        proxy_buffering off;
+      }
+    <% end %>
+
+    <% if ENV["API_SERVER"] %>
+      location /api {
+        proxy_pass <% ENV["API_SERVER"] %>;
+        proxy_http_version 1.1;
+        proxy_buffering off;
+      }
+    <% end %>
+
     location ~ /\. {
       deny all;
       <% if ENV["NGINX_DEBUG"] %>add_header Nginx-Denied on;<% end %>
