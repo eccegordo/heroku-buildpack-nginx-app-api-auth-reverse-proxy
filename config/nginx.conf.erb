@@ -68,7 +68,7 @@ http {
     }
 
     <% if ENV["AUTH_SERVER"] %>
-      location /auth {
+      location <% ENV["AUTH_SERVER_PATH"] %> {
         proxy_pass <% ENV["AUTH_SERVER"] %>;
         proxy_http_version 1.1;
         proxy_buffering off;
@@ -76,7 +76,7 @@ http {
     <% end %>
 
     <% if ENV["APP_SERVER"] %>
-      location /app {
+      location <% ENV["APP_SERVER_PATH"] %> {
         proxy_pass <% ENV["APP_SERVER"] %>;
         proxy_http_version 1.1;
         proxy_buffering off;
@@ -84,7 +84,7 @@ http {
     <% end %>
 
     <% if ENV["API_SERVER"] %>
-      location /api {
+      location <% ENV["API_SERVER_PATH"] %> {
         proxy_pass <% ENV["API_SERVER"] %>;
         proxy_http_version 1.1;
         proxy_buffering off;
